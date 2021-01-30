@@ -3,6 +3,7 @@ package com.ubs.auth.hub.service.impl;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.crypto.BadPaddingException;
@@ -115,8 +116,7 @@ public class LoginServiceImpl implements LoginService {
 	private String generateLoginToken(LoginDTO loginDetails) {
 		String encryptedToken = null;
 		if (null != loginDetails) {
-			String token = new StringBuilder().append(loginDetails.getIdUser()).append(" ")
-					.append(loginDetails.getIdRole()).append(" ").append(loginDetails.getRoleDescription()).toString();
+			String token = String.valueOf(new Random().nextInt());
 			encryptedToken = encryptToken(token);
 		}
 		return encryptedToken;
