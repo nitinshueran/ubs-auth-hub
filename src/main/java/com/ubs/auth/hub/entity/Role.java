@@ -1,8 +1,8 @@
 package com.ubs.auth.hub.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,13 +18,14 @@ import lombok.NoArgsConstructor;
 @Table(name = "role")
 public class Role {
 
-	private Integer idItem;
-
-	@ManyToOne()
-	@JoinColumn(name = "idRole", nullable = false)
+	@Id
+	@Column(name = "idRole")
 	private Integer idRole;
 
+
 	/** The roleDescription. */
+	@Column(name = "roleDescription")
 	private String roleDescription;
 
 }
+
